@@ -1,0 +1,55 @@
+{
+  "name": "eatsafe",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "compile": "tsc",
+    "start-device": "tsc && react-native run-android",
+    "link": "node node_modules/react-native/local-cli/cli.js link",
+    "start": "tsc && node node_modules/react-native/local-cli/cli.js start",
+    "android": "adb reverse tcp:8081 tcp:8081 && node node_modules/react-native/local-cli/cli.js run-android",
+    "ios": "node node_modules/react-native/local-cli/cli.js run-ios",
+    "test": "jest",
+    "open": "rndebugger-open",
+    "remotedev": "remotedev --hostname=localhost --port=8000 --injectserver=reactnative",
+    "remotedev-revert": "remotedev --revert=reactnative",
+    "postinstall": "npm run link && npm run remotedev && rndebugger-open",
+    "prebuild": "rm -rf dist",
+    "build": "tsc --watch"
+  },
+  "dependencies": {
+    "email-validator": "^1.0.7",
+    "native-base": "^0.5.20",
+    "react": "15.4.2",
+    "react-native": "0.40.0",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0",
+    "redux-observable": "^0.12.2",
+    "redux-persist": "^4.0.1",
+    "reselect": "^2.5.4",
+    "rxjs": "^5.0.3",
+    "whatwg-fetch": "^2.0.1"
+  },
+  "devDependencies": {
+    "@types/isomorphic-fetch": "0.0.31",
+    "@types/react": "^15.0.0",
+    "@types/react-native": "^0.37.6",
+    "@types/react-redux": "^4.4.35",
+    "@types/redux-logger": "^2.6.32",
+    "@types/redux-persist": "^4.0.0",
+    "@types/remote-redux-devtools": "^0.3.5",
+    "@types/reselect": "^2.0.27",
+    "babel-jest": "18.0.0",
+    "babel-preset-react-native": "1.9.1",
+    "jest": "18.1.0",
+    "react-native-debugger-open": "^0.3.2",
+    "react-test-renderer": "15.4.2",
+    "redux-logger": "^2.7.4",
+    "remote-redux-devtools": "^0.5.7",
+    "remote-redux-devtools-on-debugger": "^0.7.0",
+    "typescript": "^2.1.4"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
